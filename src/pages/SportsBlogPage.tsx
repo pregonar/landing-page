@@ -115,7 +115,7 @@ export const SportsBlogPage: React.FC<SportsBlogPageProps> = ({ onNavigate, user
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => handleNavClick('landing')}>
-              <img src="./logo.png" alt="Pregonar Logo" className="h-10 w-10 mr-2 rounded-full object-cover" />
+              <img src="/logo.png" alt="Pregonar Logo" className="h-10 w-10 mr-2 rounded-full object-cover" />
               <span className="font-display font-extrabold text-2xl tracking-tight text-brand-navy">PREGONAR</span>
             </div>
 
@@ -364,7 +364,7 @@ export const SportsBlogPage: React.FC<SportsBlogPageProps> = ({ onNavigate, user
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="col-span-1 md:col-span-1">
                     <div className="flex items-center gap-2 mb-4">
-                        <img src="./logo.png" className="w-8 h-8 rounded-full" alt="Logo" />
+                        <img src="/logo.png" className="w-8 h-8 rounded-full" alt="Logo" />
                         <span className="font-display font-bold text-xl">PREGONAR</span>
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed mb-6">

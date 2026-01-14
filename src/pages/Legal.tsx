@@ -16,7 +16,7 @@ const LegalPageLayout: React.FC<LegalPageProps> = ({ title, content, onNavigate 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => onNavigate('landing')}>
-              <img src="./logo.png" alt="Pregonar Logo" className="h-10 w-10 mr-2 rounded-full object-cover" />
+              <img src="/logo.png" alt="Pregonar Logo" className="h-10 w-10 mr-2 rounded-full object-cover" />
               <span className="font-display font-extrabold text-2xl tracking-tight text-brand-navy">PREGONAR</span>
             </div>
             <button onClick={() => onNavigate('landing')} className="text-sm font-bold text-gray-500 hover:text-brand-navy flex items-center gap-2">

@@ -56,7 +56,7 @@ export const TribeAdminDashboard: React.FC<TribeAdminDashboardProps> = ({ user, 
         <aside className="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col fixed h-full z-10">
             <div className="p-6 flex flex-col gap-4 border-b border-gray-100">
                 <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('landing')}>
-                    <img src="./logo.png" alt="Logo" className="w-8 h-8 rounded-full" />
+                    <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-full" />
                     <span className="font-display font-bold text-lg text-brand-navy">Pregonar</span>
                 </div>
                 <div className="bg-brand-navy/5 p-3 rounded-xl flex items-center gap-3">
@@ -116,7 +116,7 @@ export const TribeAdminDashboard: React.FC<TribeAdminDashboardProps> = ({ user, 
             {/* Top Bar Mobile */}
             <div className="md:hidden flex justify-between items-center mb-6">
                 <div className="flex items-center gap-2">
-                    <img src="./logo.png" className="w-8 h-8 rounded-full" />
+                    <img src="/logo.png" className="w-8 h-8 rounded-full" />
                     <span className="font-bold text-brand-navy">Tribe Manager</span>
                 </div>
                 <button onClick={onLogout}><LogOut size={20} className="text-gray-500" /></button>
