@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pregonar es la plataforma líder para descubrir, crear y participar en eventos deportivos, culturales y talleres. Conecta con instructores y encuentra tu comunidad.">
+    <meta name="keywords" content="eventos, deportes, cultura, talleres, clases, instructores, maratón, arte, yoga, comunidad, tickets, reservas, argentina, méxico, españa">
+    <meta name="author" content="Pregonar Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pregonar.app/">
+    <meta property="og:title" content="Pregonar - Descubre Tu Próxima Pasión">
+    <meta property="og:description" content="La plataforma líder para descubrir eventos y conectar con profesionales. Anuncia, expone y comparte tu próxima pasión.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pregonar.app/">
+    <meta property="twitter:title" content="Pregonar - Descubre Tu Próxima Pasión">
+    <meta property="twitter:description" content="La plataforma líder para descubrir eventos y conectar con profesionales. Anuncia, expone y comparte tu próxima pasión.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200">
+
+    <title>Pregonar - Descubre Eventos y Talleres</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Configuración personalizada de Tailwind para usar los colores del Logo -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#12143A', // Azul oscuro del logo
+                            red: '#EF5455',  // Rojo coral del logo
+                            gray: '#F3F4F6', // Fondo suave
+                            dark: '#0f112e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8F9FA;
+        }
+        /* Ocultar scrollbar pero permitir scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
