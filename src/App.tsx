@@ -611,12 +611,12 @@ const App = () => {
 
       {/* Featured Events Section - CAROUSEL */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex justify-between items-center mb-10">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-10 gap-4 sm:gap-0">
           <div>
             <h2 className="text-2xl md:text-3xl font-display font-bold text-brand-navy">Eventos Destacados</h2>
             <p className="text-gray-500 mt-2 text-sm md:text-base">Los mejores eventos seleccionados para ti esta semana.</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 self-end sm:self-auto">
             <div className="flex gap-2">
               <button
                 onClick={handlePrevSlide}
@@ -648,7 +648,7 @@ const App = () => {
                 className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
               >
                 <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] h-full flex flex-col">
-                  <div className="relative h-48 overflow-hidden shrink-0">
+                  <div className="relative h-56 sm:h-48 overflow-hidden shrink-0">
                     <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
                     <div className="absolute top-4 left-4">
                       <span className="bg-white text-brand-navy text-xs font-bold px-3 py-1 rounded-md shadow-sm">{event.category}</span>
