@@ -40,7 +40,7 @@ export const OrganizerDashboard: React.FC<OrganizerDashboardProps> = ({ user, on
         {/* Navbar */}
         <nav className="bg-white border-b border-gray-200 px-6 py-3 flex justify-between items-center sticky top-0 z-50">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('landing')}>
-                <img src="./logo.png" alt="Logo" className="w-8 h-8 rounded-full" />
+                <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-full" />
                 <span className="font-display font-bold text-xl text-brand-navy">Pregonar <span className="text-gray-400 font-sans font-normal text-sm">Organizer</span></span>
             </div>
             <div className="flex items-center gap-6">

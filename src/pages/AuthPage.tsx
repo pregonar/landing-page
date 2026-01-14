@@ -83,7 +83,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onLoginSuccess, onNavigate }
             
             <div className="relative z-10 p-16 w-full">
                 <div className="flex items-center gap-3 mb-8">
-                    <img src="./logo.png" alt="Logo" className="w-10 h-10 rounded-full object-cover border-2 border-white/20" />
+                    <img src="/logo.png" alt="Logo" className="w-10 h-10 rounded-full object-cover border-2 border-white/20" />
                     <span className="text-white font-display font-bold text-2xl tracking-tight">Pregonar</span>
                 </div>
                 

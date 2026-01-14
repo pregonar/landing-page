@@ -90,7 +90,7 @@ export const UserProfilePage: React.FC<UserProfilePageProps> = ({ user, onNaviga
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center cursor-pointer" onClick={() => onNavigate('landing')}>
-              <img src="./logo.png" alt="Pregonar Logo" className="h-8 w-8 mr-2 rounded-full object-cover" />
+              <img src="/logo.png" alt="Pregonar Logo" className="h-8 w-8 mr-2 rounded-full object-cover" />
               <span className="font-display font-extrabold text-lg text-brand-navy">Pregonar</span>
             </div>
             <button 

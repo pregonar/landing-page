@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-1">
                  <div className="flex items-center mb-6">
-                    <img src="./logo.png" alt="Pregonar Logo" className="h-8 w-8 mr-2 rounded-full object-cover" />
+                    <img src="/logo.png" alt="Pregonar Logo" className="h-8 w-8 mr-2 rounded-full object-cover" />
                     <span className="font-display font-bold text-xl tracking-tight">PREGONAR</span>
                  </div>
                  <p className="text-gray-400 text-sm leading-relaxed mb-6">

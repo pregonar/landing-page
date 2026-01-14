@@ -436,7 +436,7 @@ export const WorkshopDetailsPage: React.FC<WorkshopDetailsPageProps> = ({
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => handleNavClick('landing')}>
-              <img src="./logo.png" alt="Pregonar Logo" className="h-10 w-10 mr-2 rounded-full object-cover" />
+              <img src="/logo.png" alt="Pregonar Logo" className="h-10 w-10 mr-2 rounded-full object-cover" />
               <span className="font-display font-extrabold text-2xl tracking-tight text-brand-navy">PREGONAR</span>
             </div>
 
