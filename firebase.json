@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "site": "pregonar",
+        "site": "pregonar-5751a",
         "public": "dist",
         "ignore": [
             "firebase.json",
