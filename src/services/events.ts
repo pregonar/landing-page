@@ -9,7 +9,9 @@ import {
     getDoc,
     DocumentData,
     QueryDocumentSnapshot,
-    SnapshotOptions
+    SnapshotOptions,
+    updateDoc,
+    deleteDoc
 } from "firebase/firestore";
 import { db } from "../lib/firebase";
 
@@ -82,6 +84,23 @@ export const getEvents = async (): Promise<Event[]> => {
 export const createEvent = async (event: Omit<Event, 'id'>): Promise<string> => {
     const docRef = await addDoc(collection(db, EVENTS_COLLECTION).withConverter(eventConverter), event);
     return docRef.id;
+};
+
+export const updateEvent = async (id: string, updates: Partial<Omit<Event, 'id'>>): Promise<void> => {
+    // Manually handle Date -> Timestamp conversion for updates
+    const dataToUpdate: any = { ...updates };
+    if (updates.date) dataToUpdate.date = Timestamp.fromDate(updates.date);
+    if (updates.createdAt) dataToUpdate.createdAt = Timestamp.fromDate(updates.createdAt);
+
+    // We use the raw doc ref (without converter) to ensure we can pass the partial data with Timestamps directly
+    // If we used withConverter, updateDoc types might get strict or confusing with Partial models
+    const docRef = doc(db, EVENTS_COLLECTION, id);
+    await updateDoc(docRef, dataToUpdate);
+};
+
+export const deleteEvent = async (id: string): Promise<void> => {
+    const docRef = doc(db, EVENTS_COLLECTION, id);
+    await deleteDoc(docRef);
 };
 
 // Helper to seed initial data if empty
