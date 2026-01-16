@@ -319,7 +319,8 @@ export const WorkshopsPage: React.FC<WorkshopsPageProps> = ({
                         <div className="md:hidden flex items-center">
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="text-brand-navy p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                                className="text-brand-navy p-2 hover:bg-gray-100 rounded-lg transition-colors w-10 h-10 flex items-center justify-center"
+                                style={{ WebkitTapHighlightColor: 'transparent' }}
                             >
                                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>
@@ -356,7 +357,7 @@ export const WorkshopsPage: React.FC<WorkshopsPageProps> = ({
 
                 {/* Mobile Menu Dropdown */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-20 z-40 animate-in slide-in-from-top-2 duration-200">
+                    <div className="md:hidden fixed inset-x-0 top-20 bottom-0 bg-white z-[60] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
                         <div className="flex flex-col p-4 space-y-4">
                             <button onClick={() => handleNavClick('landing')} className="text-left font-medium text-gray-700 py-2 border-b border-gray-50">Inicio</button>
                             <button onClick={() => handleNavClick('about')} className="text-left font-medium text-gray-700 py-2 border-b border-gray-50">Nosotros</button>
