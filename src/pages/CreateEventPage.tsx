@@ -305,7 +305,7 @@ export const CreateEventPage: React.FC<CreateEventPageProps> = ({ onNavigate, us
 
                     {/* STEP 2: LOCATION */}
                     {step === 2 && (
-                        <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500 h-[calc(100vh-140px)]">
+                        <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500 lg:h-[calc(100vh-140px)]">
                             <div className="lg:w-1/2 space-y-6 overflow-y-auto pr-2">
                                 <div>
                                     <h2 className="text-3xl font-display font-bold text-brand-navy mb-2">Where is the starting line?</h2>
@@ -347,7 +347,7 @@ export const CreateEventPage: React.FC<CreateEventPageProps> = ({ onNavigate, us
                                 </div>
                             </div>
 
-                            <div className="lg:w-1/2 bg-gray-200 rounded-3xl overflow-hidden relative shadow-inner min-h-[400px]">
+                            <div className="lg:w-1/2 bg-gray-200 rounded-3xl overflow-hidden relative shadow-inner h-64 md:h-auto md:min-h-[400px] shrink-0">
                                 <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700" />
                                 <div className="absolute top-4 right-4 flex flex-col gap-2">
                                     <button className="bg-white p-2 rounded-lg shadow-md hover:bg-gray-50"><Crosshair size={20} /></button>
@@ -422,42 +422,44 @@ export const CreateEventPage: React.FC<CreateEventPageProps> = ({ onNavigate, us
                                         <Plus size={16} /> Add New Ticket Type
                                     </button>
                                 </div>
-                                <table className="w-full text-left">
-                                    <thead className="bg-white text-xs text-gray-500 uppercase font-bold border-b border-gray-100">
-                                        <tr>
-                                            <th className="px-6 py-4">Ticket Name</th>
-                                            <th className="px-6 py-4">Available</th>
-                                            <th className="px-6 py-4">Price</th>
-                                            <th className="px-6 py-4">Status</th>
-                                            <th className="px-6 py-4 text-right">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-gray-100">
-                                        {formData.tickets.map((ticket) => (
-                                            <tr key={ticket.id} className="hover:bg-gray-50 transition">
-                                                <td className="px-6 py-4 font-bold text-brand-navy">
-                                                    {ticket.name}
-                                                    {ticket.name.includes('Early') && <span className="block text-[10px] font-normal text-gray-400">Ends Oct 15</span>}
-                                                </td>
-                                                <td className="px-6 py-4 text-gray-600">
-                                                    <span className="font-bold text-brand-navy">{ticket.available}</span> <span className="text-xs">/ 500</span>
-                                                </td>
-                                                <td className="px-6 py-4 font-bold text-brand-navy">${ticket.price.toFixed(2)}</td>
-                                                <td className="px-6 py-4">
-                                                    <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase ${ticket.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-200 text-gray-600'}`}>
-                                                        {ticket.status}
-                                                    </span>
-                                                </td>
-                                                <td className="px-6 py-4 text-right">
-                                                    <div className="flex justify-end gap-2">
-                                                        <button className="p-2 text-gray-400 hover:text-brand-navy hover:bg-white rounded-lg"><Edit2 size={16} /></button>
-                                                        <button className="p-2 text-gray-400 hover:text-red-500 hover:bg-white rounded-lg"><Trash2 size={16} /></button>
-                                                    </div>
-                                                </td>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-left">
+                                        <thead className="bg-white text-xs text-gray-500 uppercase font-bold border-b border-gray-100">
+                                            <tr>
+                                                <th className="px-6 py-4 whitespace-nowrap">Ticket Name</th>
+                                                <th className="px-6 py-4 whitespace-nowrap">Available</th>
+                                                <th className="px-6 py-4 whitespace-nowrap">Price</th>
+                                                <th className="px-6 py-4 whitespace-nowrap">Status</th>
+                                                <th className="px-6 py-4 text-right whitespace-nowrap">Actions</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-100">
+                                            {formData.tickets.map((ticket) => (
+                                                <tr key={ticket.id} className="hover:bg-gray-50 transition">
+                                                    <td className="px-6 py-4 font-bold text-brand-navy whitespace-nowrap">
+                                                        {ticket.name}
+                                                        {ticket.name.includes('Early') && <span className="block text-[10px] font-normal text-gray-400">Ends Oct 15</span>}
+                                                    </td>
+                                                    <td className="px-6 py-4 text-gray-600 whitespace-nowrap">
+                                                        <span className="font-bold text-brand-navy">{ticket.available}</span> <span className="text-xs">/ 500</span>
+                                                    </td>
+                                                    <td className="px-6 py-4 font-bold text-brand-navy whitespace-nowrap">${ticket.price.toFixed(2)}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase ${ticket.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-200 text-gray-600'}`}>
+                                                            {ticket.status}
+                                                        </span>
+                                                    </td>
+                                                    <td className="px-6 py-4 text-right whitespace-nowrap">
+                                                        <div className="flex justify-end gap-2">
+                                                            <button className="p-2 text-gray-400 hover:text-brand-navy hover:bg-white rounded-lg"><Edit2 size={16} /></button>
+                                                            <button className="p-2 text-gray-400 hover:text-red-500 hover:bg-white rounded-lg"><Trash2 size={16} /></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
                             {/* Pro Tip Box */}
@@ -626,12 +628,12 @@ export const CreateEventPage: React.FC<CreateEventPageProps> = ({ onNavigate, us
                                             <button className="p-1 hover:bg-gray-100 rounded"><ChevronRight className="rotate-90" size={20} /></button>
                                         </div>
 
-                                        <div className="flex gap-6 pl-14">
+                                        <div className="flex flex-col-reverse md:flex-row gap-6 pl-0 md:pl-14">
                                             <div className="flex-1">
                                                 <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">EVENT TITLE</p>
                                                 <h4 className="font-bold text-brand-navy text-lg mb-4">{formData.title}</h4>
 
-                                                <div className="flex gap-3 mb-4">
+                                                <div className="flex flex-wrap gap-2 md:gap-3 mb-4">
                                                     <span className="bg-gray-100 px-3 py-1 rounded text-xs font-bold text-gray-600 flex gap-2 items-center"><Calendar size={12} /> {formData.date}</span>
                                                     <span className="bg-gray-100 px-3 py-1 rounded text-xs font-bold text-gray-600 flex gap-2 items-center"><Clock size={12} /> {formData.time} AM</span>
                                                     <span className="bg-gray-100 px-3 py-1 rounded text-xs font-bold text-gray-600 flex gap-2 items-center"><Bike size={12} /> Sports</span>
@@ -642,7 +644,7 @@ export const CreateEventPage: React.FC<CreateEventPageProps> = ({ onNavigate, us
 
                                                 <button onClick={() => setStep(2)} className="text-brand-red text-xs font-bold mt-4 flex items-center gap-1 hover:underline"><Edit2 size={12} /> Edit Details</button>
                                             </div>
-                                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=300" className="w-48 h-32 object-cover rounded-xl" />
+                                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=300" className="w-full md:w-48 h-48 md:h-32 object-cover rounded-xl" />
                                         </div>
                                     </div>
 
@@ -707,76 +709,78 @@ export const CreateEventPage: React.FC<CreateEventPageProps> = ({ onNavigate, us
             </div>
 
             {/* --- MODAL: Add Ticket --- */}
-            {isTicketModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-navy/60 backdrop-blur-sm animate-in fade-in duration-200">
-                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
-                        <div className="p-6 border-b border-gray-100 flex justify-between items-center">
-                            <h2 className="text-2xl font-display font-bold text-brand-navy">Add Ticket Type</h2>
-                            <button onClick={() => setIsTicketModalOpen(false)} className="text-gray-400 hover:text-brand-navy"><X size={24} /></button>
-                        </div>
-
-                        <div className="p-6 space-y-6">
-                            <div>
-                                <label className="block text-sm font-bold text-brand-navy mb-2">Ticket Name</label>
-                                <input type="text" placeholder="e.g. Early Bird VIP" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-navy" autoFocus />
+            {
+                isTicketModalOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-navy/60 backdrop-blur-sm animate-in fade-in duration-200">
+                        <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+                            <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+                                <h2 className="text-2xl font-display font-bold text-brand-navy">Add Ticket Type</h2>
+                                <button onClick={() => setIsTicketModalOpen(false)} className="text-gray-400 hover:text-brand-navy"><X size={24} /></button>
                             </div>
 
-                            <div>
-                                <div className="flex justify-between mb-2">
-                                    <label className="block text-sm font-bold text-brand-navy">Description</label>
-                                    <span className="text-xs text-gray-400">0/140</span>
-                                </div>
-                                <textarea rows={3} placeholder="What perks come with this ticket? (e.g. Front row seating, Free drink)" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-navy resize-none" />
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="p-6 space-y-6">
                                 <div>
-                                    <label className="block text-sm font-bold text-brand-navy mb-2">Price</label>
-                                    <div className="relative">
-                                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">$</span>
-                                        <input type="number" placeholder="0.00" className="w-full bg-gray-50 border border-gray-200 rounded-xl pl-8 pr-4 py-3 focus:outline-none focus:border-brand-navy" />
-                                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">USD</span>
-                                    </div>
+                                    <label className="block text-sm font-bold text-brand-navy mb-2">Ticket Name</label>
+                                    <input type="text" placeholder="e.g. Early Bird VIP" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-navy" autoFocus />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-bold text-brand-navy mb-2">Total Quantity</label>
-                                    <div className="relative">
-                                        <input type="number" placeholder="Unlimited" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-navy" />
-                                        <Users size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div>
-                                <p className="text-xs font-bold text-brand-red uppercase mb-4 tracking-widest">ADVANCED SETTINGS</p>
-                                <div className="flex items-center justify-between mb-4">
-                                    <div className="flex items-center gap-3">
-                                        <div className="bg-gray-100 p-2 rounded-lg text-gray-500"><Lock size={18} /></div>
-                                        <div>
-                                            <p className="font-bold text-brand-navy text-sm">Hidden Ticket</p>
-                                            <p className="text-xs text-gray-400">Only visible to admins and promoters.</p>
+                                <div>
+                                    <div className="flex justify-between mb-2">
+                                        <label className="block text-sm font-bold text-brand-navy">Description</label>
+                                        <span className="text-xs text-gray-400">0/140</span>
+                                    </div>
+                                    <textarea rows={3} placeholder="What perks come with this ticket? (e.g. Front row seating, Free drink)" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-navy resize-none" />
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-bold text-brand-navy mb-2">Price</label>
+                                        <div className="relative">
+                                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+                                            <input type="number" placeholder="0.00" className="w-full bg-gray-50 border border-gray-200 rounded-xl pl-8 pr-4 py-3 focus:outline-none focus:border-brand-navy" />
+                                            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">USD</span>
                                         </div>
                                     </div>
-                                    <div className="w-12 h-6 bg-gray-200 rounded-full relative cursor-pointer"><div className="w-4 h-4 bg-white rounded-full absolute top-1 left-1 shadow-sm"></div></div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-brand-navy mb-2">Total Quantity</label>
+                                        <div className="relative">
+                                            <input type="number" placeholder="Unlimited" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-navy" />
+                                            <Users size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p className="text-xs font-bold text-brand-red uppercase mb-4 tracking-widest">ADVANCED SETTINGS</p>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="bg-gray-100 p-2 rounded-lg text-gray-500"><Lock size={18} /></div>
+                                            <div>
+                                                <p className="font-bold text-brand-navy text-sm">Hidden Ticket</p>
+                                                <p className="text-xs text-gray-400">Only visible to admins and promoters.</p>
+                                            </div>
+                                        </div>
+                                        <div className="w-12 h-6 bg-gray-200 rounded-full relative cursor-pointer"><div className="w-4 h-4 bg-white rounded-full absolute top-1 left-1 shadow-sm"></div></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="p-6 border-t border-gray-100 flex justify-end gap-3 bg-gray-50">
-                            <button onClick={() => setIsTicketModalOpen(false)} className="px-6 py-3 font-bold text-gray-500 hover:text-brand-navy transition">Cancel</button>
-                            <button onClick={() => setIsTicketModalOpen(false)} className="px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-bold rounded-xl shadow-lg shadow-brand-red/20 flex items-center gap-2 transition-all">
-                                <CreditCard size={18} /> Save Ticket
-                            </button>
+                            <div className="p-6 border-t border-gray-100 flex justify-end gap-3 bg-gray-50">
+                                <button onClick={() => setIsTicketModalOpen(false)} className="px-6 py-3 font-bold text-gray-500 hover:text-brand-navy transition">Cancel</button>
+                                <button onClick={() => setIsTicketModalOpen(false)} className="px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-bold rounded-xl shadow-lg shadow-brand-red/20 flex items-center gap-2 transition-all">
+                                    <CreditCard size={18} /> Save Ticket
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Common Icon Helpers */}
             <div className="hidden">
                 <div id="Crosshair"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="22" y1="12" x2="18" y2="12" /><line x1="6" y1="12" x2="2" y2="12" /><line x1="12" y1="6" x2="12" y2="2" /><line x1="12" y1="22" x2="12" y2="18" /></svg></div>
             </div>
-        </div>
+        </div >
     );
 };
 

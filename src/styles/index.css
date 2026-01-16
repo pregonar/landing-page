@@ -5,11 +5,19 @@
 body {
     background-color: #F8F9FA;
 }
+
 /* Ocultar scrollbar pero permitir scroll */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+@media (max-width: 640px) {
+    .MuiDrawer-paper {
+        width: 100% !important;
+    }
 }

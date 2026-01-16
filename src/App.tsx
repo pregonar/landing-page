@@ -399,10 +399,11 @@ const App = () => {
             </div>
 
             {/* Mobile Menu Button */}
+            {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-brand-navy p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="text-brand-navy p-2 hover:bg-gray-100 rounded-lg transition-colors w-10 h-10 flex items-center justify-center"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -511,7 +512,7 @@ const App = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-20 z-40 animate-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden fixed inset-x-0 top-20 bottom-0 bg-white z-[60] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             <div className="flex flex-col p-4 space-y-4">
               <button onClick={() => handleNavClick('landing')} className="text-left font-medium text-gray-700 py-2 border-b border-gray-50">Inicio</button>
               <button onClick={() => handleNavClick('about')} className="text-left font-medium text-gray-700 py-2 border-b border-gray-50">Nosotros</button>
@@ -561,7 +562,7 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden min-h-[500px] lg:min-h-[600px] flex items-center transition-all duration-700">
+      <div className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden min-h-[calc(100vh-80px)] md:min-h-[600px] flex items-center transition-all duration-700">
         {/* ... Hero Content ... */}
         <div className="absolute inset-0 z-0">
           {HERO_IMAGES.map((img, index) => (
@@ -576,17 +577,17 @@ const App = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
-          <h1 className="text-3xl md:text-6xl font-display font-bold text-white mb-6 leading-tight drop-shadow-md animate-in slide-in-from-bottom-4 duration-700">
-            Anuncia, expone y comparte <br />
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight drop-shadow-md animate-in slide-in-from-bottom-4 duration-700 break-words">
+            Anuncia, expone y comparte <br className="hidden md:block" />
             <span className="text-brand-red">tu próxima pasión.</span>
           </h1>
-          <p className="text-gray-100 text-base md:text-xl max-w-2xl mx-auto mb-10 font-light drop-shadow-sm animate-in slide-in-from-bottom-6 duration-1000">
+          <p className="text-gray-100 text-sm sm:text-base md:text-xl max-w-2xl mx-auto mb-10 font-light drop-shadow-sm animate-in slide-in-from-bottom-6 duration-1000 px-2">
             La plataforma líder para descubrir eventos deportivos, artísticos y culturales cerca de ti. Conecta con instructores y profesionales.
           </p>
 
-          <div className="flex items-center justify-center gap-4 mb-8 opacity-90 max-w-lg mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-8 opacity-90 max-w-lg mx-auto px-4">
             <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent flex-1"></div>
-            <span className="text-white/80 text-xs font-bold tracking-[0.2em] uppercase">Explora tus intereses</span>
+            <span className="text-white/80 text-[10px] sm:text-xs font-bold tracking-widest uppercase whitespace-nowrap">Explora tus intereses</span>
             <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent flex-1"></div>
           </div>
 
@@ -637,7 +638,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="relative overflow-hidden -mx-4 px-4 sm:mx-0 sm:px-0 py-4">
+        <div className="relative overflow-hidden w-full py-4">
           <div
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${currentSlide * (100 / itemsVisible)}%)` }}
@@ -713,15 +714,15 @@ const App = () => {
 
       {/* Instructors Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="flex gap-4">
-            <div className="w-1/2 pt-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg h-64">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex flex-col md:flex-row gap-4 w-full md:w-1/2">
+            <div className="w-full md:w-1/2 pt-0 md:pt-8 flex justify-center">
+              <div className="overflow-hidden rounded-2xl shadow-lg h-56 md:h-64 w-full">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="Instructor 1" />
               </div>
             </div>
-            <div className="w-1/2">
-              <div className="overflow-hidden rounded-2xl shadow-lg mb-4 h-64">
+            <div className="w-full md:w-1/2 flex justify-center mt-4 md:mt-0">
+              <div className="overflow-hidden rounded-2xl shadow-lg mb-4 h-56 md:h-64 w-full">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="Instructor 2" />
               </div>
             </div>
